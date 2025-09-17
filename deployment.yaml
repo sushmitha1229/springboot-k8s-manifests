@@ -1,19 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: springboot-app
+  name: springapp-deployment
+  labels:
+    app: springapp
 spec:
   replicas: 2
   selector:
     matchLabels:
-      app: springboot-app
+      app: springapp
   template:
     metadata:
       labels:
-        app: springboot-app
+        app: springapp
     spec:
       containers:
-        - name: springboot-app
-          image: sushmitha-keddy/demo:latest
-          ports:
-            - containerPort: 8080
+      - name: springapp
+        image: sushmithakeddy/springapp:latest
+        ports:
+        - containerPort: 8080
